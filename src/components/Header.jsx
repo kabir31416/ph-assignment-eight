@@ -4,11 +4,10 @@ const Header = () => {
 
     const links = <>
         <li><Link href={'/'}>Home</Link></li>
-        <li><Link href={'/'}>All Tiles</Link></li>
-        <li><Link href={'/'}>My Profile</Link></li>
+        <li><Link href={'/all-tiles'}>All Tiles</Link></li>
+        <li><Link href={'/my-profile'}>My Profile</Link></li>
     </>
-    
-    
+
 
     return (
         <div className="navbar bg-base-100 shadow-sm">
@@ -23,7 +22,12 @@ const Header = () => {
                         {links}
                     </ul>
                 </div>
-                <Link href={'/'} className="btn btn-ghost text-xl">TilesGallery</Link>
+                <Link
+                    href="/"
+                    className="btn btn-ghost text-3xl font-bold bg-linear-to-r from-red-500 via-pink-500 to-orange-400 text-transparent bg-clip-text"
+                >
+                    TilesGallery
+                </Link>
             </div>
             <div className="navbar-center hidden lg:flex">
                 <ul className="menu menu-horizontal px-1">
@@ -31,7 +35,7 @@ const Header = () => {
                 </ul>
             </div>
             <div className="navbar-end">
-                <a className="btn">Button</a>
+                <a className="btn">Login</a>
             </div>
         </div>
     );
