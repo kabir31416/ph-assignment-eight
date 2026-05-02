@@ -1,0 +1,148 @@
+{
+  "tiles": [
+    {
+      "id": "01",
+      "title": "Ceramic Blue Tile",
+      "description": "Premium ceramic tile with blue glaze finish",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "category": "ceramic",
+      "price": 45.99,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Ceramic",
+      "inStock": true
+    },
+    {
+      "id": "02",
+      "title": "Glossy White Tile",
+      "description": "High-gloss white tile for modern interiors",
+      "image": "https://images.unsplash.com/photo-1615873968403-89e068629265",
+      "category": "ceramic",
+      "price": 39.99,
+      "currency": "USD",
+      "dimensions": "50x50 cm",
+      "material": "Ceramic",
+      "inStock": true
+    },
+    {
+      "id": "03",
+      "title": "Matte Grey Tile",
+      "description": "Elegant matte finish grey tile",
+      "image": "https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea",
+      "category": "porcelain",
+      "price": 49.5,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Porcelain",
+      "inStock": false
+    },
+    {
+      "id": "04",
+      "title": "Marble Effect Tile",
+      "description": "Luxury marble-look tile",
+      "image": "https://images.unsplash.com/photo-1618220179428-22790b461013",
+      "category": "porcelain",
+      "price": 65.0,
+      "currency": "USD",
+      "dimensions": "80x80 cm",
+      "material": "Porcelain",
+      "inStock": true
+    },
+    {
+      "id": "05",
+      "title": "Wood Finish Tile",
+      "description": "Natural wood-look ceramic tile",
+      "image": "https://images.unsplash.com/photo-1604014237800-1c9102c219da",
+      "category": "ceramic",
+      "price": 55.25,
+      "currency": "USD",
+      "dimensions": "20x120 cm",
+      "material": "Ceramic",
+      "inStock": true
+    },
+    {
+      "id": "06",
+      "title": "Black Stone Tile",
+      "description": "Dark stone finish for bold design",
+      "image": "https://images.unsplash.com/photo-1600607687644-c7171b42498f",
+      "category": "stone",
+      "price": 70.99,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Natural Stone",
+      "inStock": false
+    },
+    {
+      "id": "07",
+      "title": "Beige Floor Tile",
+      "description": "Neutral beige tile for versatile use",
+      "image": "https://images.unsplash.com/photo-1616486338812-3dadae4b4ace",
+      "category": "ceramic",
+      "price": 42.0,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Ceramic",
+      "inStock": true
+    },
+    {
+      "id": "08",
+      "title": "Textured Wall Tile",
+      "description": "3D textured tile for feature walls",
+      "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
+      "category": "decorative",
+      "price": 58.75,
+      "currency": "USD",
+      "dimensions": "30x60 cm",
+      "material": "Ceramic",
+      "inStock": true
+    },
+    {
+      "id": "09",
+      "title": "Outdoor Anti-Slip Tile",
+      "description": "Durable anti-slip tile for outdoor areas",
+      "image": "https://images.unsplash.com/photo-1615873968403-89e068629265",
+      "category": "outdoor",
+      "price": 62.3,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Porcelain",
+      "inStock": true
+    },
+    {
+      "id": "10",
+      "title": "Mosaic Pattern Tile",
+      "description": "Colorful mosaic design tile",
+      "image": "https://images.unsplash.com/photo-1615874959474-d609969a20ed",
+      "category": "decorative",
+      "price": 75.0,
+      "currency": "USD",
+      "dimensions": "30x30 cm",
+      "material": "Glass",
+      "inStock": false
+    },
+    {
+      "id": "11",
+      "title": "Polished Granite Tile",
+      "description": "Premium polished granite surface",
+      "image": "https://images.unsplash.com/photo-1600585154526-990dced4db0d",
+      "category": "stone",
+      "price": 85.99,
+      "currency": "USD",
+      "dimensions": "60x60 cm",
+      "material": "Granite",
+      "inStock": true
+    },
+    {
+      "id": "12",
+      "title": "Rustic Brown Tile",
+      "description": "Rustic brown tile for vintage look",
+      "image": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+      "category": "ceramic",
+      "price": 47.8,
+      "currency": "USD",
+      "dimensions": "45x45 cm",
+      "material": "Ceramic",
+      "inStock": true
+    }
+  ]
+}

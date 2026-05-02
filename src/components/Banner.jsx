@@ -8,7 +8,6 @@ const Banner = () => {
     <div className="bg-white flex items-center py-10">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-10 items-center">
         
-        {/* Text Section */}
         <div>
           <h1 className="text-4xl md:text-6xl font-extrabold leading-tight">
             Discover Premium{" "}
@@ -30,7 +29,6 @@ const Banner = () => {
           </div>
         </div>
 
-        {/* Image Section */}
         <div className="flex justify-center">
           <div className="relative">
             <Image
@@ -41,7 +39,6 @@ const Banner = () => {
               className="rounded-2xl shadow-xl"
             />
 
-            {/* Decorative Glow */}
             <div className="absolute -z-10 top-10 left-10 w-72 h-72 bg-red-400/20 blur-3xl rounded-full"></div>
           </div>
         </div>

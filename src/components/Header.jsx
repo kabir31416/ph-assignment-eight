@@ -24,7 +24,7 @@ const Header = () => {
                 </div>
                 <Link
                     href="/"
-                    className="btn btn-ghost text-3xl font-bold bg-linear-to-r from-red-500 via-pink-500 to-orange-400 text-transparent bg-clip-text"
+                    className="btn btn-ghost text-3xl font-bold bg-linear-to-r from-red-500 to-orange-400  text-transparent bg-clip-text"
                 >
                     TilesGallery
                 </Link>
