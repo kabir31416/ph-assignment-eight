@@ -1,59 +1,65 @@
 "use client";
 
-import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import { useForm } from "react-hook-form";
 
 export default function LoginPage() {
   const router = useRouter();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-
-    if (!email || !password) {
-      setError("Please fill all fields");
-      return;
-    }
-
+  const handleLogin = (data) => {
+    console.log(data);
     router.push("/");
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-red-50 via-white to-orange-50 px-4">
 
-      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg">
+      <div className="w-full max-w-md bg-white p-8 rounded-2xl shadow-lg border">
 
-        <h1 className="text-3xl font-bold text-center mb-6">
-          Login
+        <h1 className="text-3xl font-bold text-center mb-2">
+          Welcome Back
         </h1>
 
-        {error && (
-          <p className="text-red-500 text-sm text-center mb-3">
-            {error}
-          </p>
-        )}
+        <p className="text-center text-gray-500 mb-6 text-sm">
+          Login to your account
+        </p>
 
-        <form onSubmit={handleLogin} className="space-y-4">
+        <form onSubmit={handleSubmit(handleLogin)} className="space-y-4">
 
-          <input
-            type="email"
-            placeholder="Email"
-            className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <div>
+            <input
+              type="email"
+              placeholder="Email Address"
+              {...register("email", { required: "Email required" })}
+              className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
+            />
+            {errors.email && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.email.message}
+              </p>
+            )}
+          </div>
 
-          <input
-            type="password"
-            placeholder="Password"
-            className="w-full border p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-400"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <div>
+            <input
+              type="password"
+              placeholder="Password"
+              {...register("password", { required: "Password required" })}
+              className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
+            />
+            {errors.password && (
+              <p className="text-red-500 text-sm mt-1">
+                {errors.password.message}
+              </p>
+            )}
+          </div>
 
           <button className="w-full bg-linear-to-r from-red-500 to-orange-400 text-white py-3 rounded-lg hover:scale-105 transition">
             Login
@@ -61,20 +67,18 @@ export default function LoginPage() {
 
         </form>
 
-        
         <button className="w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
           Continue with Google
         </button>
 
         <p className="text-sm text-center mt-5">
-          Don’t have account?{" "}
-          <Link href="/register" className="text-blue-500 font-medium">
+          Don’t have an account?{" "}
+          <Link href="/register" className="text-blue-500 font-medium hover:underline">
             Register
           </Link>
         </p>
 
       </div>
-
     </div>
   );
 }
