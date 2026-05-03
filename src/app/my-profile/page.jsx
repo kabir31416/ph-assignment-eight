@@ -16,7 +16,7 @@ export default function MyProfilePage() {
   }
 
   return (
-    <div className="min-h-screen flex justify-center items-center bg-gray-100">
+    <div className=" flex justify-center items-center bg-gray-100 py-20">
 
       <div className="bg-white p-8 rounded-xl shadow-md w-80 text-center">
 
