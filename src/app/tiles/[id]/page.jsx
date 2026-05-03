@@ -1,19 +1,36 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useRouter, useParams } from "next/navigation";
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 
-export default async function TileDetailsPage({ params }) {
-  const { id } = await params;
+export default function TileDetailsPage() {
+  const router = useRouter();
+  const params = useParams();
 
-  const res = await fetch("http://localhost:5001/tiles");
-  const data = await res.json();
+  const { data: session, isPending } = authClient.useSession();
 
-  const tile = data.find((t) => t.id === id);
+  const [tile, setTile] = useState(null);
 
-  if (!tile) {
-    return (
-      <div className="text-center mt-20 text-red-500 text-xl">
-        Tile Not Found
-      </div>
-    );
+  useEffect(() => {
+    if (!isPending && !session) {
+      router.push("/login");
+    }
+  });
+
+  useEffect(() => {
+    fetch("http://localhost:5001/tiles")
+      .then((res) => res.json())
+      .then((data) => {
+        const found = data.find((t) => t.id === params.id);
+        setTile(found);
+      });
+  }, [params.id]);
+
+
+  if (isPending || !tile) {
+    return <p className="text-center mt-20">Loading...</p>;
   }
 
   return (
@@ -71,7 +88,7 @@ export default async function TileDetailsPage({ params }) {
           </div>
 
           {/* BUTTON */}
-          <button className="mt-4 bg-gradient-to-r from-red-500 to-orange-400 text-white px-6 py-2 rounded-lg hover:scale-105 transition">
+          <button className="mt-4 bg-linear-to-r from-red-500 to-orange-400 text-white px-6 py-2 rounded-lg hover:scale-105 transition">
             Add to Cart
           </button>
 

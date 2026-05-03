@@ -3,16 +3,29 @@
 import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function MyProfilePage() {
 
+  const router = useRouter();
+  const { data: session } = authClient.useSession()
+  const user = session?.user;
 
-    const { data: session } = authClient.useSession()
+   useEffect(() => {
+    if (!user) {
+      router.push("/login"); 
+    }
+  }, [user, router]);
 
-    const user = session?.user;
-
-  if (!user) {
-    return <p className="text-center mt-20">Loading...</p>;
+  const handleSignout = async () => {
+    await authClient.signOut({
+      fetchOptions: {
+        onSuccess: () => {
+          router.push("/login"); 
+        },
+      },
+    });
   }
 
   return (
@@ -41,6 +54,11 @@ export default function MyProfilePage() {
             Update Profile
           </button>
         </Link>
+
+
+        <button onClick={() => handleSignout()} className="btn w-full bg-linear-to-r from-red-500 to-orange-400 text-white">
+          Sign Out
+        </button>
 
       </div>
 
