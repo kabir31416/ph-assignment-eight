@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
+import { authClient } from "@/lib/auth-client";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -13,9 +14,15 @@ export default function LoginPage() {
     formState: { errors },
   } = useForm();
 
-  const handleLogin = (data) => {
-    console.log(data);
-    router.push("/");
+  const handleLogin = async (e) => {
+    const { data, error } = await authClient.signIn.email({
+      email: e.email, 
+      password: e.password, 
+      rememberMe: true,
+      callbackURL: "/my-profile",
+    });
+
+    console.log(data, error)
   };
 
   return (
@@ -33,6 +40,7 @@ export default function LoginPage() {
 
         <form onSubmit={handleSubmit(handleLogin)} className="space-y-4">
 
+          {/* EMAIL */}
           <div>
             <input
               type="email"
@@ -47,6 +55,7 @@ export default function LoginPage() {
             )}
           </div>
 
+          {/* PASSWORD */}
           <div>
             <input
               type="password"
@@ -61,16 +70,19 @@ export default function LoginPage() {
             )}
           </div>
 
+          {/* BUTTON */}
           <button className="w-full bg-linear-to-r from-red-500 to-orange-400 text-white py-3 rounded-lg hover:scale-105 transition">
             Login
           </button>
 
         </form>
 
+        {/* GOOGLE */}
         <button className="w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
           Continue with Google
         </button>
 
+        {/* LINK */}
         <p className="text-sm text-center mt-5">
           Don’t have an account?{" "}
           <Link href="/register" className="text-blue-500 font-medium hover:underline">
