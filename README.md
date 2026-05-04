@@ -1,36 +1,142 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+🧱 Tiles Gallery Web App
 
-## Getting Started
+A modern tile showcase web application built with Next.js, MongoDB, and Better Auth. Users can explore tiles, view details, and manage their profile with authentication support.
 
-First, run the development server:
+---
 
-```bash
+🚀 Live Features
+
+🌐 Public Routes
+
+- "/" → Home page (featured tiles + slider)
+- "/all-tiles" → All tiles collection with search
+- "/login" → User login
+- "/register" → User registration
+
+🔐 Private Routes
+
+- "/tiles/[id]" → Tile details page (requires login)
+- "/my-profile" → User profile page
+
+---
+
+✨ Core Features
+
+- 🧱 Tiles listing with search functionality
+- 🔍 Dynamic tile details page
+- 🔐 Authentication (Email/Password + Google Login)
+- 👤 User profile with session handling
+- 🚫 Protected routes (redirect if not logged in)
+- 🎨 Responsive UI with Tailwind CSS
+- ⚡ Fast rendering with Next.js App Router
+
+---
+
+🛠️ Tech Stack
+
+- Frontend: Next.js 16 (App Router)
+- Styling: Tailwind CSS + DaisyUI
+- Authentication: Better Auth
+- Database: MongoDB (Atlas)
+- State Handling: React Hooks
+- Forms: React Hook Form
+- API: JSON Server (for tiles data)
+
+---
+
+📁 Project Structure
+
+src/
+ ├── app/
+ │   ├── page.jsx (Home)
+ │   ├── all-tiles/
+ │   ├── tiles/[id]/
+ │   ├── login/
+ │   ├── register/
+ │   ├── my-profile/
+ │
+ ├── components/
+ │   ├── Header.jsx
+ │   ├── Footer.jsx
+ │   ├── TilesSlider.jsx
+ │   ├── Banner.jsx
+ │
+ ├── lib/
+ │   ├── auth.js
+ │   ├── auth-client.js
+ │
+ ├── db.json
+
+---
+
+⚙️ Installation & Setup
+
+1️⃣ Clone the project
+
+git clone https://github.com/your-username/tiles-gallery.git
+cd tiles-gallery
+
+2️⃣ Install dependencies
+
+npm install
+
+3️⃣ Setup environment variables
+
+Create ".env.local" file:
+
+MONGODB_URI=your_mongodb_uri
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+---
+
+4️⃣ Run JSON Server (Tiles API)
+
+json-server --watch db.json --port 5001
+
+👉 API URL:
+
+http://localhost:5001/tiles
+
+---
+
+5️⃣ Run the project
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+👉 Open:
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+🔐 Authentication Flow
 
-To learn more about Next.js, take a look at the following resources:
+- User can register with email/password
+- Login using credentials or Google
+- Session stored using Better Auth
+- Protected routes redirect unauthenticated users to login
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+⚠️ Known Issues / Notes
 
-## Deploy on Vercel
+- JSON Server must be running for tiles data
+- MongoDB must allow IP access (0.0.0.0/0 for development)
+- Images use "unoptimized" mode in Next.js
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+📦 Future Improvements
+
+- 🛒 Add to cart system
+- ❤️ Wishlist feature
+- ⭐ Ratings & reviews
+- 🔎 Advanced filters (price, category)
+- 📱 Mobile UI improvements
+
+---
+
+👨‍💻 Author
+
+Sahariar Kabir 
