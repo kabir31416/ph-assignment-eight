@@ -8,6 +8,10 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 const client = new MongoClient(process.env.MONGODB_URI);
 const db = client.db();
 
+if (!process.env.MONGODB_URI) {
+  throw new Error("❌ MONGODB_URI is missing");
+}
+
 export const auth = betterAuth({
   baseURL: process.env.BETTER_AUTH_URL,
 

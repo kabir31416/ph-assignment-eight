@@ -76,14 +76,14 @@ export default function LoginPage() {
             )}
           </div>
 
-          <button className="w-full bg-linear-to-r from-red-500 to-orange-400 text-white py-3 rounded-lg hover:scale-105 transition">
+          <button className="btn w-full bg-linear-to-r from-red-500 to-orange-400 text-white py-3 rounded-lg hover:scale-105 transition">
             Login
           </button>
 
         </form>
 
 
-        <button onClick={handleGoogle} className="flex items-center justify-center gap-3 w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
+        <button onClick={handleGoogle} className="btn flex items-center justify-center gap-3 w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
           <FaGoogle className="text-red-500" />
           <span>Continue with Google</span>
         </button>

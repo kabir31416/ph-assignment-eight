@@ -1,20 +1,15 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { useState } from "react";
 import TilesCard from "@/components/TilesCard";
+import tilesData from "@/data/db.json";
 
 export default function AllTilesPage() {
-  const [tiles, setTiles] = useState([]);
   const [search, setSearch] = useState("");
 
-  useEffect(() => {
-    fetch("http://localhost:5001/tiles")
-      .then((res) => res.json())
-      .then((data) => setTiles(data))
-      .catch(() => setTiles([]));
-  }, []);
+  const tiles = Array.isArray(tilesData)
+    ? tilesData
+    : tilesData.tiles || [];
 
   const filteredTiles = tiles.filter((tile) =>
     tile.title.toLowerCase().includes(search.toLowerCase())
@@ -38,10 +33,11 @@ export default function AllTilesPage() {
       </div>
 
       <div className="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-
-        {filteredTiles.map((tile) => <TilesCard key={tile.id} tile={tile} />)}
-
+        {filteredTiles.map((tile) => (
+          <TilesCard key={tile.id} tile={tile} />
+        ))}
       </div>
+
     </div>
   );
 }
