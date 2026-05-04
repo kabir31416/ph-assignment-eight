@@ -73,8 +73,7 @@ src/
 
 1️⃣ Clone the project
 
-git clone https://github.com/your-username/tiles-gallery.git
-cd tiles-gallery
+git clone https://github.com/kabir31416/ph-assignment-eight.git
 
 2️⃣ Install dependencies
 
