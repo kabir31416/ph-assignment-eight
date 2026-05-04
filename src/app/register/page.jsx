@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import { FaGoogle } from "react-icons/fa";
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -18,25 +19,30 @@ export default function RegisterPage() {
 
     const { data, error } = await authClient.signUp.email({
       name: e.name,
-      email: e.email, 
-      password: e.password, 
+      email: e.email,
+      password: e.password,
       image: e.photo,
       callbackURL: "/login",
     });
 
     console.log(data, error)
 
-    if(error){
+    if (error) {
       alert(error.message)
     }
 
-    if(data){
+    if (data) {
       alert(data.message)
     }
 
-
-
   };
+
+  const handleGoogle = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-red-50 via-white to-orange-50 px-4">
@@ -52,7 +58,6 @@ export default function RegisterPage() {
 
         <form onSubmit={handleSubmit(handleRegister)} className="space-y-4">
 
-          {/* NAME */}
           <div>
             <input
               type="text"
@@ -61,13 +66,12 @@ export default function RegisterPage() {
               className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
             {errors.name && (
-              <p className="text-red-500 text-sm">
+              <p className="text-red-500 text-sm animate__animated animate__shakeX">
                 {errors.name.message}
               </p>
             )}
           </div>
 
-          {/* EMAIL */}
           <div>
             <input
               type="email"
@@ -76,13 +80,12 @@ export default function RegisterPage() {
               className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm">
+              <p className="text-red-500 text-sm animate__animated animate__shakeX">
                 {errors.email.message}
               </p>
             )}
           </div>
 
-          {/* PHOTO */}
           <div>
             <input
               type="text"
@@ -91,13 +94,12 @@ export default function RegisterPage() {
               className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
             {errors.photo && (
-              <p className="text-red-500 text-sm">
+              <p className="text-red-500 text-sm animate__animated animate__shakeX">
                 {errors.photo.message}
               </p>
             )}
           </div>
 
-          {/* PASSWORD */}
           <div>
             <input
               type="password"
@@ -112,21 +114,21 @@ export default function RegisterPage() {
               className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm">
+              <p className="text-red-500 text-sm animate__animated animate__shakeX">
                 {errors.password.message}
               </p>
             )}
           </div>
 
-          {/* BUTTON */}
           <button className="w-full bg-linear-to-r from-red-500 to-orange-400 text-white py-3 rounded-lg hover:scale-105 transition">
             Register
           </button>
 
         </form>
 
-        <button className="w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
-          Continue with Google
+        <button onClick={handleGoogle} className="flex items-center justify-center gap-3 w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
+          <FaGoogle className="text-red-500" />
+          <span>Continue with Google</span>
         </button>
 
         <p className="text-sm text-center mt-5">

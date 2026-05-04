@@ -50,7 +50,6 @@ export default function TileDetailsPage() {
           />
         </div>
 
-        {/* DETAILS */}
         <div className="space-y-4">
 
           <h1 className="text-3xl font-bold text-gray-800">
@@ -65,7 +64,7 @@ export default function TileDetailsPage() {
             ${tile.price}
           </div>
 
-          {/* INFO BOX */}
+          
           <div className="bg-gray-100 p-4 rounded-lg space-y-2 text-sm">
 
             <p><span className="font-semibold">Category:</span> {tile.category}</p>
@@ -74,7 +73,6 @@ export default function TileDetailsPage() {
 
           </div>
 
-          {/* STATUS BADGE */}
           <div>
             {tile.inStock ? (
               <span className="px-4 py-1 bg-green-500 text-white rounded-full text-sm">
@@ -87,7 +85,6 @@ export default function TileDetailsPage() {
             )}
           </div>
 
-          {/* BUTTON */}
           <button className="mt-4 bg-linear-to-r from-red-500 to-orange-400 text-white px-6 py-2 rounded-lg hover:scale-105 transition">
             Add to Cart
           </button>

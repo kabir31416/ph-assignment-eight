@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useForm } from "react-hook-form";
 import { authClient } from "@/lib/auth-client";
+import { FaGoogle } from "react-icons/fa";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -16,14 +17,21 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     const { data, error } = await authClient.signIn.email({
-      email: e.email, 
-      password: e.password, 
+      email: e.email,
+      password: e.password,
       rememberMe: true,
       callbackURL: "/my-profile",
     });
 
     console.log(data, error)
   };
+
+  const handleGoogle = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+  }
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-linear-to-br from-red-50 via-white to-orange-50 px-4">
@@ -48,7 +56,7 @@ export default function LoginPage() {
               className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
             {errors.email && (
-              <p className="text-red-500 text-sm mt-1">
+              <p className="text-red-500 text-sm mt-1 animate__animated animate__shakeX">
                 {errors.email.message}
               </p>
             )}
@@ -62,7 +70,7 @@ export default function LoginPage() {
               className="w-full border p-3 rounded-lg focus:ring-2 focus:ring-orange-400 outline-none"
             />
             {errors.password && (
-              <p className="text-red-500 text-sm mt-1">
+              <p className="text-red-500 text-sm mt-1 animate__animated animate__shakeX">
                 {errors.password.message}
               </p>
             )}
@@ -74,9 +82,10 @@ export default function LoginPage() {
 
         </form>
 
-        
-        <button className="w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
-          Continue with Google
+
+        <button onClick={handleGoogle} className="flex items-center justify-center gap-3 w-full mt-3 border py-3 rounded-lg hover:bg-gray-100 transition">
+          <FaGoogle className="text-red-500" />
+          <span>Continue with Google</span>
         </button>
 
         <p className="text-sm text-center mt-5">
